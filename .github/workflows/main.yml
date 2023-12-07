@@ -9,7 +9,7 @@ on:
   
 jobs:
   build-job:
-     runs-on: ubuntu-latest
+     runs-on: ajit-github
      steps:
        - name: task 1 for printing OS details
          run: uname -a
@@ -18,7 +18,10 @@ jobs:
        - name: step 3
          run: sleep 30
        - name: step 4 
-         run: echo "build job and step 4 of job 1 completed"
+         run: |
+           echo "build job and step 4 of job 1 completed"
+           touch /tmp/ajit
+         
   test-job:
      runs-on: ubuntu-latest
      steps:
