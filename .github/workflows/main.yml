@@ -1,19 +1,33 @@
-name: workflow1
-
 on: 
   push:
     branches:
     - main
     - dev
-  schedule:
-    - cron: '*/5 * * * *'
   workflow_dispatch:
+  
 jobs:
-  job1:
+  build-job:
      runs-on: ubuntu-latest
      steps:
        - name: task 1 for printing OS details
          run: uname -a
        - name: task 2 to print hostname
          run: hostname 
-         
+       - name: step 3
+         run: sleep 30
+       - name: step 4 
+         run: echo "build job and step 4 of job 1 completed"
+  test-job:
+     runs-on: ubuntu-latest
+     steps:
+       - name: task 1 for printing OS details
+         run: uname -a
+       - name: task 2 to print hostname
+         run: |
+            hostname
+            sleep 10 
+       - name: step 3
+         run: sleep 30
+       - name: step 4 
+         run: echo "Test-job and step 4 of test-job completed"
+        
