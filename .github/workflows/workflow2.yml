@@ -8,6 +8,8 @@ on:
     branches:
        - main
        
+env:
+  USER1: Gagandeep
 jobs:
   build:
      runs-on: ubuntu-latest
@@ -17,8 +19,10 @@ jobs:
        - name: step 2 
          run: |
           ls -l
+          echo "github repo name is ${{ GITHUB.REPOSITORY }} and branch name is ${{ GITHUB.REF_NAME }} "
+          echo "value for user1 is $USER1
           pwd
           java -version
 
-          echo "github repo name is ${{ GITHUB.REPOSITORY }} and branch name is ${{ GITHUB.REF_NAME }} "
+          
       
